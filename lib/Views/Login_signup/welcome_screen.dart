@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medics/Views/Login_signup/SignUp_Screen.dart';
 import 'package:medics/Views/Login_signup/login_screen.dart';
 
 import '../../constant/color_app.dart';
@@ -47,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                          SizedBox(height: 50.h,),
                          round_button(title: "Login", onPressed: () {   Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginScreen())); }, type:round_buttonType.bgPrimary),
                          SizedBox(height: 20.h,),
-                         round_button(title: "Sign Up", onPressed: () {  }, type:round_buttonType.textPrimary),
+                         round_button(title: "Sign Up", onPressed: () {   Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));}, type:round_buttonType.textPrimary),
 
                  ],
                ),

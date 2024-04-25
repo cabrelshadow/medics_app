@@ -45,7 +45,10 @@ class Rouded_buttonWitthIcon extends StatelessWidget {
                 child: Text(title,style:GoogleFonts.montserrat(
                     fontSize: 16,color:Colors.black,
                   fontWeight:FontWeight.bold
-                ),))
+                ),)),
+            SizedBox(height: 20,),
+
+
           ],
         ),
       ),

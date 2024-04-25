@@ -2,14 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medics/Views/home_screen/nav_bar.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/constant/image_string.dart';
 
 import '../../widgets/RoundedButton.dart';
 import '../../widgets/TextFieldwithObscureText.dart';
+import '../../widgets/modal_show.dart';
 import '../../widgets/roundedButtonIcon.dart';
 import '../../widgets/textfield_with_icon.dart';
+import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
           fontWeight:FontWeight.bold
         ),),
         centerTitle: true,
-        leading:  Icon(IconlyLight.arrowLeft,color: Colors.black,size: 20,),
+        leading:  const Icon(IconlyLight.arrowLeft,color: Colors.black,size: 20,),
       ),
        body:SafeArea(
          child: SingleChildScrollView(
@@ -38,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
              child: Column(
                children: [
                  textFieldWith_icon(textEditingController: TextEmail, title: 'email', icon: IconlyLight.message,),
-                 SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                  textFieldWith_icon_ObscureText(textEditingController: Textpassword, title: 'Password',),
                  Align(
                       alignment: Alignment.centerRight,
@@ -50,8 +54,17 @@ class _LoginScreenState extends State<LoginScreen> {
                      )
                      )
                  ),
-                 SizedBox(height: 20,),
-                 round_button(title: 'Login', onPressed: () {  },),
+                 const SizedBox(height: 20,),
+                 round_button(title: 'Login', onPressed: () {
+                CustomDialog.showCustomDialog(
+                    context, "Yeay! Welcome Back",
+                    "Once again you login successfully \n into medidoc app",
+                    "Go to home",
+                        (){     Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));},Icons.check
+          );
+
+                 },
+                 ),
                  SizedBox(height: 10,),
                  Align(
                    alignment: Alignment.center,
@@ -78,7 +91,10 @@ class _LoginScreenState extends State<LoginScreen> {
                        ],
                      )
                  ),
-                 Rouded_buttonWitthIcon(title: 'Sign in with Google', image: googleIcon, onPressed: () {  },)
+                 Rouded_buttonWitthIcon(title: 'Sign in with Google', image: googleIcon, onPressed: () {
+
+
+                 },)
                ],
              ),
            ),
