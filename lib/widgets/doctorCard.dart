@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/color_app.dart';
 
-InkWell TopDoctorCard(Map<dynamic, dynamic> listViewItemDoctor) {
+InkWell TopDoctorCard(Map<dynamic, dynamic> listViewItemDoctor,VoidCallback onPressed) {
   return InkWell(
-    onTap:(){},
+    onTap:onPressed,
     child: Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
       width: 175,

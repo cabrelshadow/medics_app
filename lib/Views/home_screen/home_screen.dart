@@ -13,6 +13,7 @@ import 'package:medics/widgets/RoundedButton.dart';
 import '../../constant/image_string.dart';
 import '../../widgets/doctorCard.dart';
 import '../../widgets/textfield_with_icon.dart';
+import '../doctors/TopDoctor.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           shrinkWrap:true,
                           itemBuilder:(context,index){
                             var listViewItemDoctor=DoctorCard[index] as Map ? ?? {};
-                            return   TopDoctorCard(listViewItemDoctor);
+                            return   TopDoctorCard(listViewItemDoctor,(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Topdoctor())); });
                           }
 
                       ),

@@ -4,6 +4,11 @@ const String avatar="assets/image/Avatar.png";
 const String avatar2="assets/image/a2.png";
 const String avatar3="assets/image/a3.png";
 
+const String d1="assets/image/d1.png";
+const String d2="assets/image/d2.png";
+const String d3="assets/image/d3.png";
+const String d4="assets/image/d4.png";
+
 const String OnboardingImg2="assets/image/on2.png";
 const String OnboardingImg1="assets/image/7xm_1.png";
 const String OnboardingImg3="assets/image/on3.png";
