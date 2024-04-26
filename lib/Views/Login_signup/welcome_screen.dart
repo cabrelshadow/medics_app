@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medics/Views/Login_signup/SignUp_Screen.dart';
@@ -22,7 +23,16 @@ class WelcomeScreen extends StatelessWidget {
                child: Column(
 
                  children: [
-                    Image.asset(Applogo , width:96,height: 98.52,color: AppColor.primary,),
+                   Animate(
+
+                     effects: [
+                         FlipEffect(alignment: Alignment.center,duration: 6.seconds,direction:Axis.vertical),
+
+                     ],
+
+                     child:      Image.asset(Applogo , width:96,height: 98.52,color: AppColor.primary,),
+                   ),
+
                    SizedBox(height: 5.h,),
                    Text("Medics",style: GoogleFonts.montserrat(
                      fontSize: 25.52,
@@ -45,12 +55,21 @@ class WelcomeScreen extends StatelessWidget {
                  ),
                ),
 
-                         SizedBox(height: 50.h,),
-                         round_button(title: "Login", onPressed: () {   Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginScreen())); }, type:round_buttonType.bgPrimary),
+                         SizedBox(height: 50.h),
+                   Animate(
+
+                     effects: [
+                       FlipEffect(alignment: Alignment.center,duration: 4.seconds,direction:Axis.vertical),
+
+                     ],
+
+                     child:     round_button(title: "Login", onPressed: () {   Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginScreen())); }, type:round_buttonType.bgPrimary),
+                   ),
+
                          SizedBox(height: 20.h,),
                          round_button(title: "Sign Up", onPressed: () {   Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));}, type:round_buttonType.textPrimary),
 
-                 ],
+           ],
                ),
              ),
          ),

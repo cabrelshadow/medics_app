@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/widgets/RoundedButton.dart';
@@ -195,7 +196,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           shrinkWrap:true,
                           itemBuilder:(context,index){
                             var listViewItemDoctor=DoctorCard[index] as Map ? ?? {};
-                            return   TopDoctorCard(listViewItemDoctor,(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Topdoctor())); });
+                            return   TopDoctorCard(listViewItemDoctor,(){
+
+                               Get.to(()=>Topdoctor(),transition: Transition.zoom,duration: 1.2.seconds);
+                            }
+
+                            );
                           }
 
                       ),

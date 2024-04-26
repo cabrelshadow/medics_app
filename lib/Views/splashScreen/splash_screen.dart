@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void goWelcomePage()async{
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 5));
     welcompage();
   }
 
@@ -41,13 +42,17 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(Applogo),
+                  Animate(
+
+                    effects: [ FadeEffect(duration: 4.seconds),RotateEffect(alignment: Alignment.center,duration: 4.seconds,)],
+                    child:     Image.asset(Applogo),
+                  ),
               SizedBox(height: 10.h,),
               Text("Medics",style: GoogleFonts.montserrat(
                 fontSize: 40,
                 color:AppColor.white,
                 fontWeight:FontWeight.bold,
-              ),)
+              ),).animate().fade(duration: 2.seconds).scale(duration: 3.seconds)
 
             ],
           ),

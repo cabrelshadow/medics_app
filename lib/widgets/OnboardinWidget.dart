@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,11 +19,17 @@ class OnboardinWidget extends StatelessWidget {
         children: [
           Image.asset(image ,fit: BoxFit.fill, width: 321.w,height: 465.h,),
           SizedBox(height: 10.h,),
+          Animate(
+            effects: [
+                 ScaleEffect(duration: 2.seconds,),
 
-          Text(title,style: GoogleFonts.montserrat(
-            fontSize:20,
-            fontWeight:FontWeight.bold,
-          ),)
+             ],
+            child:
+            Text(title,style: GoogleFonts.montserrat(
+              fontSize:20,
+              fontWeight:FontWeight.bold,
+            ),),
+          )
         ],
       ),
     );

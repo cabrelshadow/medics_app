@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
 
 import 'Views/splashScreen/splash_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return ScreenUtilInit(
-      builder: (BuildContext context,child) => MaterialApp(
+      builder: (BuildContext context,child) => GetMaterialApp(
         title: 'Medics',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
