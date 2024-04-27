@@ -9,6 +9,14 @@ const String d2="assets/image/d2.png";
 const String d3="assets/image/d3.png";
 const String d4="assets/image/d4.png";
 
+const String lung="assets/image/lun.png";
+const String covid="assets/image/Covid.png";
+const String phy="assets/image/Psychiatrist.png";
+const String Syringe="assets/image/Syringe.png";
+const String dentist="assets/image/Dentist.png";
+const String cardiologist="assets/image/Cardiologist.png";
+const String doc="assets/image/doc.png";
+
 const String OnboardingImg2="assets/image/on2.png";
 const String OnboardingImg1="assets/image/7xm_1.png";
 const String OnboardingImg3="assets/image/on3.png";

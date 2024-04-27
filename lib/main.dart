@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
 
+import 'Views/doctors/find_Doctor.dart';
 import 'Views/splashScreen/splash_screen.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: SplashScreen(),
+        home: FindDoctor(),
         debugShowCheckedModeBanner: false,
       ),
       designSize:  Size(360, 690),

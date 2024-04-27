@@ -41,6 +41,9 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   get: ^4.6.6
   flutter_animate: ^4.5.0
+  auto_size_text: ^3.0.0
+  avatar_glow: ^3.0.1
+  flutter_swiper_view: ^1.1.8
 
 dev_dependencies:
   flutter_test:
