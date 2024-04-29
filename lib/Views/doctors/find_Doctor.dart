@@ -57,7 +57,8 @@ class _FindDoctorState extends State<FindDoctor> {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: Text("Find Doctor",style: GoogleFonts.montserrat(
+            surfaceTintColor: Colors.transparent,
+            title: Text("Find Doctors",style: GoogleFonts.montserrat(
                  fontSize:20,
                  fontWeight:FontWeight.bold
 
@@ -67,7 +68,7 @@ class _FindDoctorState extends State<FindDoctor> {
           ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25,horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 25,horizontal: 22),
 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,11 +148,10 @@ class _FindDoctorState extends State<FindDoctor> {
                           ),
 
                 //==============================================cart recommandation doctor with Swiper effect=========================//
-                SizedBox(height: 20,),
+                SizedBox(height: 25.h,),
                 SwiperDoctorCartEffect(),
-                Padding(
-                  padding:EdgeInsets.symmetric(horizontal: 10),
-                  child: Align(
+                SizedBox(height: 25.h,),
+             Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText(
                       "Your Recent Doctors",style: GoogleFonts.montserrat(
@@ -161,9 +161,35 @@ class _FindDoctorState extends State<FindDoctor> {
                       maxLines: 1,
                     ),
                   ),
-                ),
-                Row(
-                  
+
+                SizedBox(height: 25.h,),
+                SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+
+                      scrollDirection: Axis.horizontal,
+
+                      itemBuilder:(contex,index){
+                         return Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Column(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  radius: 50,
+                                  child: Image.asset(pro,width: 200,height: 200,fit: BoxFit.contain,),
+
+                                ),
+                                SizedBox(height: 14,),
+                                AutoSizeText("Dr. Maria",style: GoogleFonts.montserrat(
+                                   color:AppColor.secondaryText
+                                ),)
+                              ],
+                           ),
+                         );
+                      }
+
+                  ),
                 )
 
                  ],

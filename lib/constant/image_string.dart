@@ -3,6 +3,8 @@ const String Applogo="assets/image/applogo.png";
 const String avatar="assets/image/Avatar.png";
 const String avatar2="assets/image/a2.png";
 const String avatar3="assets/image/a3.png";
+const String pro="assets/image/pro.png";
+
 
 const String d1="assets/image/d1.png";
 const String d2="assets/image/d2.png";

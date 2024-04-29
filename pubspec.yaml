@@ -44,6 +44,8 @@ dependencies:
   auto_size_text: ^3.0.0
   avatar_glow: ^3.0.1
   flutter_swiper_view: ^1.1.8
+  intl: ^0.17.0
+
 
 dev_dependencies:
   flutter_test:
