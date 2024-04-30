@@ -11,6 +11,20 @@ class _WeekPageState extends State<WeekPage> {
   int selectedHourIndex = -1;
   bool isLoading = false; // Ajouter un état pour le chargement
 
+  late List<DateTime> dates; // Déclarer dates ici
+  late List<String> hoursOfDay; // Déclarer hoursOfDay ici
+  void initState() {
+    super.initState();
+
+    final today = DateTime.now();
+    final now = DateTime.now(); // Ajoutez cette ligne pour déclarer la variable now
+    final startOfWeek = today.subtract(Duration(days: today.weekday - 1));
+    dates = List<DateTime>.generate(7, (index) => startOfWeek.add(Duration(days: index)));
+
+    final formatter = DateFormat('MMM dd');
+
+    hoursOfDay = List.generate(10, (index) => (index + 8).toString() + ":00");
+  }
   void _selectChip(int index) {
     setState(() {
       selectedIndex = index;
@@ -23,13 +37,41 @@ class _WeekPageState extends State<WeekPage> {
         isLoading = false; // Désactiver le chargement
       });
     });
+
+    // Récupérer la date sélectionnée
+
+    final selectedDate = dates[index];
+
+    // Imprimer la date sélectionnée
+    print('Date sélectionnée: $selectedDate');
+
+    // Imprimer l'heure sélectionnée
+    if (selectedHourIndex != -1) {
+      final selectedHour = hoursOfDay[selectedHourIndex];
+      print('Heure sélectionnée: $selectedHour');
+    }
   }
+
+
 
   void _selectHour(int index) {
     setState(() {
       selectedHourIndex = index;
     });
+
+    // Récupérer l'heure sélectionnée
+    final selectedHour = hoursOfDay[index];
+
+    // Imprimer l'heure sélectionnée
+    print('Heure sélectionnée: $selectedHour');
+
+    // Imprimer la date sélectionnée
+    if (selectedIndex != -1) {
+      final selectedDate = dates[selectedIndex];
+      print('Date sélectionnée: $selectedDate');
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +102,12 @@ class _WeekPageState extends State<WeekPage> {
                   final dayOfWeek = daysOfWeek[index];
                   final label = '$dayOfWeek${formatter.format(date)}';
                   final isSelected = index == selectedIndex;
+                  final isToday = date.year == today.year && date.month == today.month && date.day == today.day;
 
                   return GestureDetector(
                     onTap: () => _selectChip(index),
                     child: Container(
-                      color: Colors.red,
+                      color: isToday ? Colors.green : Colors.red, // Mettre en vert si c'est aujourd'hui
                       height: 100,
                       child: Chip(
                         labelPadding: EdgeInsets.symmetric(vertical: 35, horizontal: 30),

@@ -18,6 +18,7 @@ const String Syringe="assets/image/Syringe.png";
 const String dentist="assets/image/Dentist.png";
 const String cardiologist="assets/image/Cardiologist.png";
 const String doc="assets/image/doc.png";
+const String chat="assets/image/chat.png";
 
 const String OnboardingImg2="assets/image/on2.png";
 const String OnboardingImg1="assets/image/7xm_1.png";

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
+import 'package:medics/widgets/chips.dart';
 
 import 'Views/doctors/find_Doctor.dart';
 import 'Views/splashScreen/splash_screen.dart';
