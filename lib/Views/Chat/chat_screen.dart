@@ -4,11 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medics/constant/color_app.dart';
 
 import '../../Model/chat_model.dart';
 import '../../widgets/message_widget.dart';
+import '../call/Vidoe_call.dart';
+import '../call/audio_call.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -39,9 +43,9 @@ class _ChatScreenState extends State<ChatScreen> {
             fontSize:20
          ),),
          actions: [
-           Icon(IconlyBold.video,),
+           InkWell( onTap: (){ Get.to(()=>ViedeoScreen());}, child: Icon(IconlyBold.video,)),
           SizedBox(width: 5,),
-           Icon(IconlyBold.call),
+           InkWell(  onTap: (){ Get.to(()=>CallAudioScreen());} ,child: Icon(IconlyBold.call)),
            PopupMenuButton(
 
              itemBuilder: (context){
