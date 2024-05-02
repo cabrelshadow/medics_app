@@ -6,6 +6,7 @@ import 'package:medics/widgets/chips.dart';
 
 import 'Views/doctors/find_Doctor.dart';
 import 'Views/splashScreen/splash_screen.dart';
+import 'map/ambulence_map.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: FindDoctor(),
+        home: MapSample(),
         debugShowCheckedModeBanner: false,
       ),
       designSize:  Size(360, 690),

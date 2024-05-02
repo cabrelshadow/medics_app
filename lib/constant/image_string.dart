@@ -14,6 +14,9 @@ const String profile="assets/image/profile.jpeg";
 const String callaudio="assets/image/callaudio.jpg";
 const String avatarglow="assets/image/avatarglow.png";
 const String doctotcall="assets/image/doctorcall.png";
+const String marker="assets/image/marker.png";
+const String L1="assets/image/L1.png";
+const String l2="assets/image/l3.png";
 
 
 const String lung="assets/image/lun.png";
