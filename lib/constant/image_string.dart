@@ -27,10 +27,26 @@ const String dentist="assets/image/Dentist.png";
 const String cardiologist="assets/image/Cardiologist.png";
 const String doc="assets/image/doc.png";
 const String chat="assets/image/chat.png";
+const String data="assets/image/data.png";
+const String cool="assets/image/cool.png";
+const String chatdata="assets/image/chatdata.png";
 
 const String OnboardingImg2="assets/image/on2.png";
 const String OnboardingImg1="assets/image/7xm_1.png";
 const String OnboardingImg3="assets/image/on3.png";
+const String om="assets/image/om.png";
+const String momo="assets/image/momo.png";
+
+const String P="assets/image/p.png";
+const String cal="assets/image/cal.png";
+const String c="assets/image/c.png";
+const String react="assets/image/des.png";
+
+const String logout="assets/image/logout.png";
+const String heart="assets/image/Heart.png";
+const String faq="assets/image/faq.png";
+const String document="assets/image/Document.png";
+const String paiement="assets/image/Wallet.png";
 
 const String googleIcon="assets/image/Google.png";
 const String doctor="assets/image/doctor.png";

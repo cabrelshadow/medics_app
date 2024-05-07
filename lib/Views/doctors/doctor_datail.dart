@@ -13,6 +13,7 @@ import '../../constant/color_app.dart';
 import '../../constant/image_string.dart';
 import '../../widgets/doctor_card_detail.dart';
 import '../Chat/chat_screen.dart';
+import 'Appointement.dart';
 
 class DoctorDetail extends StatefulWidget {
   const DoctorDetail({super.key});
@@ -236,7 +237,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
-                    onTap: (){},
+                    onTap: (){ Get.to(()=>ChatScreen());},
                     child: Container(
                       height: 60,
                       width: 60,
@@ -248,7 +249,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                     ),
                   ),
                   InkWell(
-                    onTap: (){ Get.to(()=>ChatScreen());},
+                    onTap: (){ Get.to(()=>AppointmentScreen());},
                     child: Container(
                       width: 250,
                       height: 60,

@@ -68,7 +68,7 @@ class MapSampleState extends State<MapSample> {
     appBar: AppBar(
       centerTitle: true,
       leading: Icon(Icons.arrow_back_ios_new),
-      title: Text("Ambulence",style: GoogleFonts.montserrat(
+      title: Text("Ambulance",style: GoogleFonts.montserrat(
          fontWeight:FontWeight.bold
       ),),
     ),

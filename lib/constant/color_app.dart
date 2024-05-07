@@ -8,5 +8,6 @@ class AppColor {
   static Color get placeholder => const Color(0xffF9FAFB);
   static Color get iconColor => const Color(0xffC4C4C4);
   static Color get white => const Color(0xffffffff);
+  static Color get primary2 => const  Color(0xffE8F3F1);
 
 }
