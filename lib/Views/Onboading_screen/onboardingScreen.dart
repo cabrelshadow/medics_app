@@ -31,7 +31,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
 
               PageView(
                 children: [
-                  OnboardinWidget(title: 'Consult only with a doctor\n you trust', image: OnboardingImg1,),
+                  OnboardinWidget(title: 'Consult only with a doctor\n you trust', image: OnboardingImg3,),
                   OnboardinWidget(title: 'Find a lot of specialist \n doctors in one place', image: OnboardingImg2,),
                   OnboardinWidget(title: 'Get connect our Online \n Consultation', image: OnboardingImg3,),
                 ],

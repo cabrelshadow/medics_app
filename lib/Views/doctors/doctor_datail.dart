@@ -36,11 +36,12 @@ class _DoctorDetailState extends State<DoctorDetail> {
     final now = DateTime.now(); // Ajoutez cette ligne pour déclarer la variable now
     final startOfWeek = today.subtract(Duration(days: today.weekday - 1));
     dates = List<DateTime>.generate(7, (index) => startOfWeek.add(Duration(days: index)));
-
+    //final dateOfToday=dates.asMap();
+    var result =   dates.firstWhere((entry) => entry.year == today.year && entry.month == today.month && entry.day == today.day );
     final formatter = DateFormat('MMM dd');
 
     hoursOfDay = List.generate(10, (index) => (index + 8).toString() + ":00");
-
+    print(result);
   }
   void _selectChip(int index) {
     setState(() {
@@ -95,6 +96,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
     final startOfWeek = today.subtract(Duration(days: today.weekday - 1));
     final dates = List<DateTime>.generate(7, (index) => startOfWeek.add(Duration(days: index)));
 
+
     final formatter = DateFormat('dd');
 
     final List<String> hoursOfDay = List.generate(10, (index) => (index + 8).toString() + ":00");
@@ -148,16 +150,23 @@ class _DoctorDetailState extends State<DoctorDetail> {
               SizedBox(height: 30,),
               SizedBox(
                 height: 100,
+
+
                 child: ListView.builder(
+
                   scrollDirection: Axis.horizontal,
                   itemCount: 7, // Nombre d'éléments dans votre liste
                   itemBuilder: (context, index) {
                     final date = dates[index];
+                    var result =   dates.firstWhere((entry) => entry.year == today.year && entry.month == today.month && entry.day == today.day );
+
+
                     final dayOfWeek = daysOfWeek[index];
                     //final label = '$dayOfWeek   ${formatter.format(date)}';
                     final isSelected = index == selectedIndex;
                     final isToday = date.year == today.year && date.month == today.month && date.day == today.day;
 
+                    // print("element $index est:${IsBoxOftoday(dates,index,today)} ");
                     return GestureDetector(
                       onTap: () => _selectChip(index),
                       child: Container(
@@ -180,10 +189,12 @@ class _DoctorDetailState extends State<DoctorDetail> {
                               ),
                             ],
                           ),
-                          backgroundColor: (isToday)
-                              ? (isToday ? AppColor.primary : Colors.transparent)
-                              : (isSelected ? AppColor.primary : Colors.transparent),
-                          labelStyle: TextStyle(color: isSelected ? AppColor.white : Colors.black),
+
+                          backgroundColor:getcolor(isSelected, dates, index, today),
+                          labelStyle: TextStyle(
+                              color:(IsBoxOftoday(dates,index,today))?  AppColor.white : Colors.black
+
+                          ),
 
                           elevation: 4.0,
                           shadowColor: Colors.grey[50],
@@ -272,6 +283,31 @@ class _DoctorDetailState extends State<DoctorDetail> {
         ),
       ),
     );
+  }
+  bool IsBoxOftoday(List date, int index,DateTime dateOftoday){
+    return  date[index].year == dateOftoday.year &&  date[index].month == dateOftoday.month &&  date[index].day == dateOftoday.day;
+  }
+  Color getcolor(bool islectedindex,List date, int index,DateTime dateOftoday){
+    bool toggle=true;
+
+     if(islectedindex){
+
+       return AppColor.primary;
+
+     }
+
+     if(islectedindex){
+       toggle=false;
+
+    }
+     print(toggle);
+     print(islectedindex);
+    if(IsBoxOftoday(dates,index,dateOftoday) && toggle){
+      return AppColor.primary;
+
+    }
+
+    return Colors.transparent;
   }
 }
 

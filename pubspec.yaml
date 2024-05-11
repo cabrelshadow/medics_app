@@ -47,6 +47,7 @@ dependencies:
   intl: ^0.17.0
   google_maps_flutter: ^2.6.1
   search_map_location: ^0.0.6
+  lottie: any
 
 
 dev_dependencies:

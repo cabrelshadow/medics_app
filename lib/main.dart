@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: NavBar(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
       designSize:  Size(360, 690),
