@@ -17,6 +17,10 @@ const String doctotcall="assets/image/doctorcall.png";
 const String marker="assets/image/marker.png";
 const String L1="assets/image/L1.png";
 const String l2="assets/image/l3.png";
+const String para="assets/image/para.png";
+const String caton="assets/image/caton.png";
+const String ct="assets/image/ct.png";
+const String Comprimer="assets/image/comprimer.jpg";
 
 
 const String lung="assets/image/lun.png";

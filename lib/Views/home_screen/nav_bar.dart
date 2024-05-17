@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:medics/Views/home_screen/home_screen.dart';
+import 'package:medics/Views/pharmacy/ariticles.dart';
 import 'package:medics/Views/schedule/schedule.dart';
 import 'package:medics/constant/color_app.dart';
 
 import '../../controller/navBar_controller.dart';
 import '../message/message.dart';
+import '../user/profile_screen.dart';
 class NavBar extends StatefulWidget {
   NavBar({Key? key}) : super(key: key);
 
@@ -29,8 +31,9 @@ class _NavBarState extends State<NavBar> {
           children:  [
              HomeScreen(),
              Schuduler(),
-            Messages()
-
+            Messages(),
+            ArticleScreen(),
+            ProfileScreen()
 
           ],
 
@@ -47,7 +50,8 @@ class _NavBarState extends State<NavBar> {
             _bottombarItem(IconlyBold.calendar, "schudule"),
 
             _bottombarItem(IconlyLight.message, "chat"),
-            _bottombarItem(IconlyLight.user2, "historique"),
+            _bottombarItem(Icons.article, "articles"),
+            _bottombarItem(IconlyBold.user2, "profile"),
 
 
           ],

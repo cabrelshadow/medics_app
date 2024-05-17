@@ -4,13 +4,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/constant/image_string.dart';
 
-import '../constant/geoLocation.dart';
+import '../../constant/geoLocation.dart';
+import '../../widgets/searchTextField.dart';
 
 class MapSample extends StatefulWidget {
   const MapSample({super.key});
@@ -20,6 +22,7 @@ class MapSample extends StatefulWidget {
 }
 
 class MapSampleState extends State<MapSample> {
+  TextEditingController Searchtext= TextEditingController();
 
   BitmapDescriptor markerIcons=BitmapDescriptor.defaultMarker;
   @override
@@ -99,25 +102,7 @@ class MapSampleState extends State<MapSample> {
            //==========================search  bo**************************
            Padding(
              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-             child: Container(
-               margin: EdgeInsets.symmetric(vertical: 20),
-               height: 50,
-               width: 370,
-               decoration: BoxDecoration(
-                 color: AppColor.placeholder,
-                 borderRadius: BorderRadius.circular(25)
-               ),
-               padding: const EdgeInsets.symmetric(horizontal: 20),
-               child: TextField(
-                 decoration: InputDecoration(
-                   hintText: 'Search location,zip code', // Texte d'indication
-                   hintStyle: TextStyle(color:AppColor.secondaryText), // Couleur du texte d'indication
-                   prefixIcon: Icon(IconlyLight.search,color: AppColor.secondaryText,), // Icône de recherche à gauche
-                   border: InputBorder.none, // Pas de bordure par défaut
-                   contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0), // Rembourrage du texte
-                 ),
-               ),
-             ),
+             child: SearchTextFieldWidget(title: 'Search location,zip code',icon: IconlyLight.search,textEditingController: Searchtext,),
            ),
            Positioned(
              bottom: 20,
@@ -192,3 +177,4 @@ class MapSampleState extends State<MapSample> {
     await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }
 }
+

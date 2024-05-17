@@ -3,13 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
 import 'package:medics/Views/home_screen/nav_bar.dart';
-import 'package:medics/user/profile_screen.dart';
+import 'package:medics/Views/pharmacy/Pharmacy.dart';
+
 import 'package:medics/widgets/chips.dart';
 
 import 'Views/doctors/doctor_datail.dart';
 import 'Views/doctors/find_Doctor.dart';
 import 'Views/splashScreen/splash_screen.dart';
-import 'map/ambulence_map.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -29,11 +30,10 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: SplashScreen(),
+        home: NavBar(),
         debugShowCheckedModeBanner: false,
       ),
       designSize:  Size(360, 690),
     );
   }
 }
-

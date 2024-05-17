@@ -44,10 +44,13 @@ dependencies:
   auto_size_text: ^3.0.0
   avatar_glow: ^3.0.1
   flutter_swiper_view: ^1.1.8
-  intl: ^0.17.0
+  intl: any
   google_maps_flutter: ^2.6.1
   search_map_location: ^0.0.6
   lottie: any
+  easy_date_timeline: any
+  toastification: ^2.0.0
+  floating_menu_panel: ^0.0.2
 
 
 dev_dependencies:

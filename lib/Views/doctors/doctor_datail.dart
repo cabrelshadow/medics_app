@@ -1,5 +1,6 @@
 
 
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:toastification/toastification.dart';
 
 import '../../constant/color_app.dart';
 import '../../constant/image_string.dart';
@@ -23,83 +25,14 @@ class DoctorDetail extends StatefulWidget {
 }
 
 class _DoctorDetailState extends State<DoctorDetail> {
-  int selectedIndex = -1;
-  int selectedHourIndex = -1;
-  bool isLoading = false; // Ajouter un état pour le chargement
 
-  late List<DateTime> dates; // Déclarer dates ici
-  late List<String> hoursOfDay;
-  void initState() {
-    super.initState();
 
-    final today = DateTime.now();
-    final now = DateTime.now(); // Ajoutez cette ligne pour déclarer la variable now
-    final startOfWeek = today.subtract(Duration(days: today.weekday - 1));
-    dates = List<DateTime>.generate(7, (index) => startOfWeek.add(Duration(days: index)));
-    //final dateOfToday=dates.asMap();
-    var result =   dates.firstWhere((entry) => entry.year == today.year && entry.month == today.month && entry.day == today.day );
-    final formatter = DateFormat('MMM dd');
 
-    hoursOfDay = List.generate(10, (index) => (index + 8).toString() + ":00");
-    print(result);
-  }
-  void _selectChip(int index) {
-    setState(() {
-      selectedIndex = index;
-      selectedHourIndex = -1;
-      isLoading = true; // Activer le chargement
-    });
-    // Simuler un délai de chargement
-    Future.delayed(Duration(seconds: 2), () {
-      setState(() {
-        isLoading = false; // Désactiver le chargement
-      });
-    });
-
-    // Récupérer la date sélectionnée
-
-    final selectedDate = dates[index];
-
-    // Imprimer la date sélectionnée
-    print('Date sélectionnée: $selectedDate');
-
-    // Imprimer l'heure sélectionnée
-    if (selectedHourIndex != -1) {
-      final selectedHour = hoursOfDay[selectedHourIndex];
-      print('Heure sélectionnée: $selectedHour');
-    }
-  }
-  void _selectHour(int index) {
-    setState(() {
-      selectedHourIndex = index;
-    });
-
-    // Récupérer l'heure sélectionnée
-    final selectedHour = hoursOfDay[index];
-
-    // Imprimer l'heure sélectionnée
-    print('Heure sélectionnée: $selectedHour');
-
-    // Imprimer la date sélectionnée
-    if (selectedIndex != -1) {
-      final selectedDate = dates[selectedIndex];
-      print('Date sélectionnée: $selectedDate');
-    }
-  }
+  int selectedHour = 0;
 
   @override
   Widget build(BuildContext context) {
-    final List<String> daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-    final today = DateTime.now();
-    final now = DateTime.now(); // Ajoutez cette ligne pour déclarer la variable now
-    final startOfWeek = today.subtract(Duration(days: today.weekday - 1));
-    final dates = List<DateTime>.generate(7, (index) => startOfWeek.add(Duration(days: index)));
-
-
-    final formatter = DateFormat('dd');
-
-    final List<String> hoursOfDay = List.generate(10, (index) => (index + 8).toString() + ":00");
     return Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -148,101 +81,86 @@ class _DoctorDetailState extends State<DoctorDetail> {
                  ]
               )),
               SizedBox(height: 30,),
-              SizedBox(
-                height: 100,
 
-
-                child: ListView.builder(
-
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 7, // Nombre d'éléments dans votre liste
-                  itemBuilder: (context, index) {
-                    final date = dates[index];
-                    var result =   dates.firstWhere((entry) => entry.year == today.year && entry.month == today.month && entry.day == today.day );
-
-
-                    final dayOfWeek = daysOfWeek[index];
-                    //final label = '$dayOfWeek   ${formatter.format(date)}';
-                    final isSelected = index == selectedIndex;
-                    final isToday = date.year == today.year && date.month == today.month && date.day == today.day;
-
-                    // print("element $index est:${IsBoxOftoday(dates,index,today)} ");
-                    return GestureDetector(
-                      onTap: () => _selectChip(index),
-                      child: Container(
-                        margin: EdgeInsets.all(8.0), // Ajoutez une marge entre les éléments si nécessaire
-                        child: Chip(
-
-                          side: BorderSide(color:Colors.white24),
-
-                          labelPadding: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
-                          label: Wrap(
-                            direction: Axis.vertical,// Utilisation de Wrap pour permettre le passage à la ligne
-                            children: <Widget>[
-                              Text(
-                                     '$dayOfWeek ',
-                                style: TextStyle(color:  isSelected ? AppColor.white : AppColor.secondaryText),
-                              ),
-                              Text(
-                                 formatter.format(date),
-                                style: TextStyle(color:  isSelected ? AppColor.white : Colors.black,fontWeight: FontWeight.bold,fontSize: 20),
-                              ),
-                            ],
-                          ),
-
-                          backgroundColor:getcolor(isSelected, dates, index, today),
-                          labelStyle: TextStyle(
-                              color:(IsBoxOftoday(dates,index,today))?  AppColor.white : Colors.black
-
-                          ),
-
-                          elevation: 4.0,
-                          shadowColor: Colors.grey[50],
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+              EasyDateTimeLine(
+                initialDate: DateTime.now(),
+                onDateChange: (selectedDate) {
+                  print('Date sélectionnée : $selectedDate');
+                  toastification.show(
+                    icon:Icon(Icons.check),
+                    alignment: Alignment.bottomCenter,
+                    context: context, // optional if you use ToastificationWrapper
+                    title: Text('Date sélectionnée : $selectedDate'),
+                    autoCloseDuration: const Duration(seconds: 2),
+                  );
+                  //
+                },
+                activeColor: AppColor.primary,
+                dayProps: EasyDayProps(
+                    dayStructure: DayStructure.dayStrDayNum
                 ),
               ),
+
+
+
               SizedBox(height: 10,),
               Divider( height: 20,color: AppColor.secondaryText,thickness: 0.3,),
               SizedBox(
-                height: 200,
-                child: GridView.builder(
+                height: 70,
+                child:ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  semanticChildCount: 10, // Nombre d'heures entre 8h et 17h (inclus)
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, // Nombre de colonnes dans la grille
-
-                  ),
-                  itemCount: hoursOfDay.length,
+                  itemCount: 10, // Nombre total d'heures affichées (de 8h à 17h inclus)
                   itemBuilder: (context, index) {
-                    final hour = hoursOfDay[index];
-                    final isSelected = index == selectedHourIndex;
+                    // Index de l'heure actuelle (de 8h à 17h)
+                    final hour = index + 8;
 
-                    final startOfCurrentDay = DateTime(today.year, today.month, today.day, 8);
-                    final isPassed = now.isAfter(startOfCurrentDay.add(Duration(hours: index)));
+                    // Vérifie si l'heure est comprise entre 8h et 17h
+                    if (hour >= 8 && hour <= 17) {
+                      return Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: InkWell(
+                          onTap: () {
+                            final currentHour = DateTime.now().hour;
+                            if(currentHour > hour){
+                               print("cette heur est deja passé");
+                            }else{
+                              print('Heure sélectionnée : ${hour.toString().padLeft(2, '0')}:00');
+                            }
 
-                    return GestureDetector(
-                      onTap: startOfCurrentDay.add(Duration(hours: index)).isBefore(now) ? null : () => _selectHour(index),
-                      child: Chip(
-                        labelPadding: EdgeInsets.symmetric(vertical: 20,horizontal: 30),
-                        label: Text('$hour PM',style: TextStyle(fontSize: 20),),
-                        backgroundColor: isSelected ? Colors.green : (isPassed ? Colors.transparent : AppColor.primary),
-                        labelStyle: TextStyle(color: isSelected? Colors.white:Colors.black),
-                        padding: EdgeInsets.all(9.0),
-                        elevation: 4.0,
-                        shadowColor: Colors.grey[50],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                            setState(() {
+                              selectedHour = hour; // Met à jour l'heure sélectionnée
+                            });
+                          },
+                          child: Container(
+                            width: 130,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              border: Border.all(color:  AppColor.secondaryText,    width: 1),
+                              color: selectedHour == hour ? AppColor.primary : Colors.transparent, // Applique une couleur différente si l'heure est sélectionnée
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '${hour.toString().padLeft(2, '0')}:00',
+                                style: TextStyle(color: selectedHour==hour? Colors.white:Colors.black),
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    } else {
+                      // Si l'heure n'est pas comprise entre 8h et 17h, retourne un conteneur vide
+                      return Container();
+                    }
                   },
-                ),
+                )
+                ,
               ),
+
+
+
               SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -284,30 +202,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
       ),
     );
   }
-  bool IsBoxOftoday(List date, int index,DateTime dateOftoday){
-    return  date[index].year == dateOftoday.year &&  date[index].month == dateOftoday.month &&  date[index].day == dateOftoday.day;
   }
-  Color getcolor(bool islectedindex,List date, int index,DateTime dateOftoday){
-    bool toggle=true;
 
-     if(islectedindex){
-
-       return AppColor.primary;
-
-     }
-
-     if(islectedindex){
-       toggle=false;
-
-    }
-     print(toggle);
-     print(islectedindex);
-    if(IsBoxOftoday(dates,index,dateOftoday) && toggle){
-      return AppColor.primary;
-
-    }
-
-    return Colors.transparent;
-  }
-}
 
