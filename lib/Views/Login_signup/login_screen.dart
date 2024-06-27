@@ -8,6 +8,7 @@ import 'package:medics/Views/home_screen/nav_bar.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/constant/image_string.dart';
 
+import '../../Model/users/users.dart';
 import '../../widgets/RoundedButton.dart';
 import '../../widgets/TextFieldwithObscureText.dart';
 import '../../widgets/modal_show.dart';
@@ -25,6 +26,19 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController TextEmail=TextEditingController();
   TextEditingController Textpassword=TextEditingController();
+  void _login() async {
+
+      String? result = await loginUser(TextEmail.text, Textpassword.text);
+      if (result == null) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login successful')));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result)));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));
+      }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,15 +69,15 @@ class _LoginScreenState extends State<LoginScreen> {
                      )
                  ),
                  const SizedBox(height: 20,),
-                 round_button(title: 'Login', onPressed: () {
-                CustomDialog.showCustomDialog(
+                 round_button(title: 'Login', onPressed: _login
+             /*   CustomDialog.showCustomDialog(
                     context, "Yeay! Welcome Back",
                     "Once again you login successfully \n into medidoc app",
                     "Go to home",
-                        (){     Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));},Icons.check
-          );
+                        (){
+          );*/
 
-                 },
+                 ,
                  ),
                  SizedBox(height: 10,),
                  Align(

@@ -3,6 +3,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:medics/Views/assistance/assistance_chat.dart';
 import 'package:medics/Views/home_screen/home_screen.dart';
 import 'package:medics/Views/pharmacy/ariticles.dart';
 import 'package:medics/Views/schedule/schedule.dart';
@@ -33,7 +34,8 @@ class _NavBarState extends State<NavBar> {
              Schuduler(),
             Messages(),
             ArticleScreen(),
-            ProfileScreen()
+            ProfileScreen(),
+            AssistanceChat(),
 
           ],
 
@@ -52,6 +54,7 @@ class _NavBarState extends State<NavBar> {
             _bottombarItem(IconlyLight.message, "chat"),
             _bottombarItem(Icons.article, "articles"),
             _bottombarItem(IconlyBold.user2, "profile"),
+            _bottombarItem(Icons.chat_bubble_outlined, "assistance"),
 
 
           ],

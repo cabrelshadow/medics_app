@@ -1,18 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
 import 'package:medics/Views/home_screen/nav_bar.dart';
-import 'package:medics/Views/pharmacy/Pharmacy.dart';
-
-import 'package:medics/widgets/chips.dart';
-
-import 'Views/doctors/doctor_datail.dart';
-import 'Views/doctors/find_Doctor.dart';
-import 'Views/splashScreen/splash_screen.dart';
 
 
-void main() {
+import 'firebase_options.dart';
+
+
+void main()async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MyApp());
 }
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: NavBar(),
+        home:NavBar(),
         debugShowCheckedModeBanner: false,
       ),
       designSize:  Size(360, 690),
