@@ -8,6 +8,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medics/Views/assistance/assistance_chat.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/widgets/RoundedButton.dart';
 
@@ -280,9 +281,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                   ],
                 ),
-              ),
+              )
+
          ),
+
        ),
+      floatingActionButton: FloatingActionButton(
+        shape:CircleBorder(),
+        onPressed: () {
+         Get.to(AssistanceChat());
+        },
+        child: Image.asset(chat,color: Colors.white,),
+        backgroundColor: AppColor.primary, // Couleur de fond du bouton flottant
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 

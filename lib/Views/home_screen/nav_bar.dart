@@ -11,6 +11,7 @@ import 'package:medics/constant/color_app.dart';
 
 import '../../controller/navBar_controller.dart';
 import '../message/message.dart';
+import '../pharmacy/Pharmacy.dart';
 import '../user/profile_screen.dart';
 class NavBar extends StatefulWidget {
   NavBar({Key? key}) : super(key: key);
@@ -33,9 +34,9 @@ class _NavBarState extends State<NavBar> {
              HomeScreen(),
              Schuduler(),
             Messages(),
-            ArticleScreen(),
+            Pharmacy(),
             ProfileScreen(),
-            AssistanceChat(),
+
 
           ],
 
@@ -52,9 +53,9 @@ class _NavBarState extends State<NavBar> {
             _bottombarItem(IconlyBold.calendar, "schudule"),
 
             _bottombarItem(IconlyLight.message, "chat"),
-            _bottombarItem(Icons.article, "articles"),
+            _bottombarItem(Icons.article, "pharmacy"),
             _bottombarItem(IconlyBold.user2, "profile"),
-            _bottombarItem(Icons.chat_bubble_outlined, "assistance"),
+
 
 
           ],

@@ -79,13 +79,13 @@ class MapSampleState extends State<MapSample> {
          children: [
            GoogleMap
              (
-             mapType: MapType.normal,
+             mapType: MapType.hybrid,
              markers: {
                Marker(
                    markerId: MarkerId('_kGooglrplex'),
                    infoWindow: InfoWindow(title: 'Nyalla'),
                    icon: markerIcons,
-                   position: LatLng(CamerounDoualaLatitude, CamerounDoualaLongitude),
+                   position: LatLng( CamerounDoualaLongitude,CamerounDoualaLatitude),
                    draggable: true
                ),
 
