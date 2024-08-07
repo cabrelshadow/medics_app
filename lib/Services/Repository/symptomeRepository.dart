@@ -15,14 +15,14 @@ class Symptomerepository{
   Future<List<SymptomeDetails>> getSymptomes()async{
     logger.d("inside the request");
 
-    final response = await  http.get(Uri.parse('http://192.168.8.198:3000/api/v1/symptome'));
+    final response = await  http.get(Uri.parse('http://192.168.8.198:3000/api/v1/diagnostic'));
 
     if(response.statusCode == 200){
       List<dynamic> data = jsonDecode(response.body) ;
       List<SymptomeDetails> symptomes = data.map((e)=> SymptomeDetails.fromJson(e)).toList() ;
 
       for(SymptomeDetails elment in symptomes){
-        logger.d(elment.toJson());
+       logger.d(elment.toJson());
       }
       return symptomes;
     }else{

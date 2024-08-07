@@ -1,13 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
-import 'package:medics/Model/consultationModel.dart';
-import 'package:medics/Model/symptome.dart';
-import 'package:medics/Model/symptomeModel.dart';
-import 'package:medics/Services/Repository/consutationRepository.dart';
-import 'package:medics/Services/Repository/symptomeRepository.dart';
+import '../Model/symptomeModel.dart';
+import '../Services/Repository/symptomeRepository.dart';
 
+// Fournisseur de repository de symptômes
+final apiSymptomeProvider = Provider<Symptomerepository>((ref) => Symptomerepository());
 
-//---------apiProviderConsultation------------
-final apiSymptomeProvider = Provider<Symptomerepository>((ref)=> Symptomerepository());
-//---------apiProviderConsultation------------
-final apiSymptomeProviderList = FutureProvider<List<SymptomeDetails>>((ref)=>ref.read(apiSymptomeProvider).getSymptomes());
+// Fournisseur de liste de symptômes
+final apiSymptomeProviderList = FutureProvider<List<SymptomeDetails>>((ref) {
+  return ref.read(apiSymptomeProvider).getSymptomes();
+});

@@ -7,6 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/consultation/consultation.dart';
+
+import 'Views/consultation/symptomlist.dart';
+
 import 'constant/gemini_api_key.dart';
 import 'firebase_options.dart';
 
@@ -32,6 +35,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: ConsultationView(),
+
         debugShowCheckedModeBanner: false,
       ),
       designSize: Size(360, 690),
