@@ -1,24 +1,24 @@
 class Maladie {
-  int maladieId;
-  String maladie;
-  String medecin;
-  int medecinId;
-  String traitement;
+  int? maladieId;
+  String? maladie;
+  int? medecinId;
+  String? medecin;
+  String? traitement;
 
   Maladie({
-    required this.maladieId,
-    required this.maladie,
-    required this.medecin,
-    required this.medecinId,
-    required this.traitement,
+    this.maladieId,
+    this.maladie,
+    this.medecinId,
+    this.medecin,
+    this.traitement,
   });
 
   factory Maladie.fromJson(Map<String, dynamic> json) {
     return Maladie(
       maladieId: json['maladie_id'],
       maladie: json['maladie'],
-      medecin: json['medecin'],
       medecinId: json['medecin_id'],
+      medecin: json['medecin'],
       traitement: json['traitement'],
     );
   }
@@ -27,8 +27,8 @@ class Maladie {
     return {
       'maladie_id': maladieId,
       'maladie': maladie,
-      'medecin': medecin,
       'medecin_id': medecinId,
+      'medecin': medecin,
       'traitement': traitement,
     };
   }

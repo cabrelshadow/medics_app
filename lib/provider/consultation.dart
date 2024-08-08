@@ -1,14 +1,15 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../Model/consultationModel.dart';
-
-import '../Model/symtomes.dart';
-import '../Services/Repository/consutationRepository.dart';
 
 
 
 
 // Fournisseur de repository de consultation
-final apiConsultationProvider = Provider<Consutationrepository>((ref) => Consutationrepository());
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../Model/consultationModel.dart';
+import '../Model/symtomes.dart';
+import '../Services/Repository/consutationRepository.dart';
+
+final apiConsultationProvider = Provider<ConsultationRepository>((ref) => ConsultationRepository());
 
 // Fournisseur de liste de symptômes
 final symptomeListProvider = StateProvider<Symptomes>((ref) => Symptomes(symptomes: []));

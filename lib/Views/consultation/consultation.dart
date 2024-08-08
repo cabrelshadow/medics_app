@@ -58,7 +58,7 @@ class _ConsultationViewState extends ConsumerState<ConsultationView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Lottie.asset("assets/image/notfound.json",width: 100,height: 300, backgroundLoading: false),
+                          Lottie.asset("assets/image/notfound.json",width: 300,height: 300, backgroundLoading: false),
                           Text('Aucun symptôme trouvé :(',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
                         ],
                       ),
