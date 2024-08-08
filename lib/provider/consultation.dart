@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Model/consultationModel.dart';
-import '../Model/symptome.dart';
+
+import '../Model/symtomes.dart';
 import '../Services/Repository/consutationRepository.dart';
 
 

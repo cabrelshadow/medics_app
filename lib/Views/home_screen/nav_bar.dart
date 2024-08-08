@@ -10,6 +10,7 @@ import 'package:medics/Views/schedule/schedule.dart';
 import 'package:medics/constant/color_app.dart';
 
 import '../../controller/navBar_controller.dart';
+import '../consultation/consultation.dart';
 import '../message/message.dart';
 import '../pharmacy/Pharmacy.dart';
 import '../user/profile_screen.dart';
@@ -33,7 +34,7 @@ class _NavBarState extends State<NavBar> {
           children:  [
              HomeScreen(),
              Schuduler(),
-            Messages(),
+            ConsultationView(),
             Pharmacy(),
             ProfileScreen(),
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medics/Views/consultation/test.dart';
-import '../../Model/symptome.dart';
+
+import '../../Model/symtomes.dart';
 import '../../provider/consultation.dart';
 
 class SymptomInputScreen extends ConsumerWidget {

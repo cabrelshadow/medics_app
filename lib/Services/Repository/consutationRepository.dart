@@ -3,7 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import '../../Model/consultationModel.dart';
-import '../../Model/symptome.dart';
+
+import '../../Model/symtomes.dart';
 
 
 class Consutationrepository{
