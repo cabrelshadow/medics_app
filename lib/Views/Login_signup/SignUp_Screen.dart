@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medics/Views/Login_signup/login_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -195,15 +196,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don’t have an account?",
+                        " have and account?",
                         style: GoogleFonts.montserrat(
                             color: AppColor.secondaryText, fontSize: 15),
                       ),
                       const SizedBox(height: 20),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(LoginScreen());
+                        },
                         child: Text(
-                          "Sign Up",
+                          "Login",
                           style: GoogleFonts.montserrat(
                               color: AppColor.primary,
                               fontWeight: FontWeight.w500,

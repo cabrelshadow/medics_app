@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medics/Views/Login_signup/SignUp_Screen.dart';
 import 'package:medics/Views/home_screen/nav_bar.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/constant/image_string.dart';
@@ -94,7 +97,9 @@ class _LoginScreenState extends State<LoginScreen> {
                          ),
                          SizedBox(height: 20,),
 
-                         TextButton(onPressed: (){}, child: Text("Sign Up",style: GoogleFonts.montserrat(
+                         TextButton(onPressed: (){
+                           Get.to(SignUpScreen());
+                         }, child: Text("Sign Up",style: GoogleFonts.montserrat(
                              color:AppColor.primary,
                              fontWeight:FontWeight.w500,
                              fontSize:15

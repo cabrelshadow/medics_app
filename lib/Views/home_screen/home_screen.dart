@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -43,7 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
       "description":"Ambulance",
     }
   ];
+  String? nomUtilisateur;
+  void initState(){
+    super.initState();
+    _fetchUserData();
 
+
+  }
   List DoctorCard=[
     {
       "name":"Dr. Marcus Horizon",
@@ -64,7 +72,19 @@ class _HomeScreenState extends State<HomeScreen> {
       "desc":"Orthopedist",
     },
   ];
+  Future<void> _fetchUserData() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
 
+    if (currentUser != null) {
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(currentUser.uid)
+          .get();
+      setState(() {
+        nomUtilisateur = userDoc['nom'];
+      });
+    }
+  }
   TextEditingController TxtSearch=TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -80,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                      Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         Text("Find your desire\nhealt solution",style: GoogleFonts.montserrat(
+                         Text("hello $nomUtilisateur \n welcome back",style: GoogleFonts.montserrat(
                              fontSize:19,
                            fontWeight:FontWeight.bold
                          ),),

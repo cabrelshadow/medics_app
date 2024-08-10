@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:medics/Views/consultation/consultation.dart';
 import 'package:medics/Views/home_screen/nav_bar.dart';
+import 'package:medics/Views/splashScreen/splash_screen.dart';
 
 import 'Views/consultation/symptomlist.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: NavBar(),
+        home: SplashScreen(),
 
         debugShowCheckedModeBanner: false,
       ),

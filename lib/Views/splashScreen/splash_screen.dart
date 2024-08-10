@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:medics/Views/Login_signup/welcome_screen.dart';
 import 'package:medics/Views/Onboading_screen/onboardingScreen.dart';
 import 'package:medics/constant/color_app.dart';
 import 'package:medics/constant/image_string.dart';
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void welcompage(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>OnboardinScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
   }
 
   @override
