@@ -11,6 +11,9 @@ import 'package:medics/constant/color_app.dart';
 
 import '../../controller/navBar_controller.dart';
 import '../consultation/consultation.dart';
+import '../doctors/Appointement.dart';
+import '../doctors/find_Doctor.dart';
+import '../maladie/DiseasePredictorScreen.dart';
 import '../message/message.dart';
 import '../pharmacy/Pharmacy.dart';
 import '../user/profile_screen.dart';
@@ -33,10 +36,11 @@ class _NavBarState extends State<NavBar> {
           index: controller.tabIndex,
           children:  [
              HomeScreen(),
-             Schuduler(),
+            DiseasePredictorScreen(),
             ConsultationView(),
-            Pharmacy(),
+            FindDoctor(),
             ProfileScreen(),
+            AppointmentScreen()
 
 
           ],
@@ -51,11 +55,12 @@ class _NavBarState extends State<NavBar> {
 
           items: [
             _bottombarItem(IconlyBold.home, "home"),
-            _bottombarItem(IconlyBold.calendar, "schudule"),
+            _bottombarItem(Icons.analytics, "prediction"),
 
-            _bottombarItem(IconlyLight.message, "chat"),
+            _bottombarItem(Icons.find_in_page, "chat"),
             _bottombarItem(Icons.article, "pharmacy"),
             _bottombarItem(IconlyBold.user2, "profile"),
+            _bottombarItem(IconlyBold.user2, "schuduler"),
 
 
 

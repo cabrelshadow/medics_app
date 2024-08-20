@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medics/constant/color_app.dart';
 
 import '../../constant/image_string.dart';
 import '../../widgets/doctor_card_detail.dart';
 import '../../widgets/modal_show.dart';
+import '../map/ambulence_map.dart';
 
 class AppointmentScreen extends StatefulWidget {
    AppointmentScreen({super.key});
@@ -275,17 +278,22 @@ List<Map> _myjson=[
                             CustomDialog.showCustomDialog(context, "Payement Success", "Your payment has been successful, you can have a consultation session with your trusted doctor",
                                 "Chat Doctor", () { }, Icons.check);
                           },
-                        child: Container(
-                             height: 50,
-                               width:180,
-                               decoration: BoxDecoration(
-                                 color:AppColor.primary,
-                                 borderRadius: BorderRadius.circular(20),
-                               ),
-                           child: Center( child: Text("Booking",style: TextStyle(
-                             color: Colors.white
-                           ),),),
-                         ),
+                        child: InkWell(
+                          onTap: (){
+                            Get.to(MapSample());
+                          },
+                          child: Container(
+                               height: 50,
+                                 width:180,
+                                 decoration: BoxDecoration(
+                                   color:AppColor.primary,
+                                   borderRadius: BorderRadius.circular(20),
+                                 ),
+                             child: Center( child: Text("Booking",style: TextStyle(
+                               color: Colors.white
+                             ),),),
+                           ),
+                        ),
                       ),
 
 

@@ -12,6 +12,7 @@ import 'package:medics/Views/splashScreen/splash_screen.dart';
 
 import 'Views/consultation/symptomlist.dart';
 
+import 'Views/maladie/DiseasePredictorScreen.dart';
 import 'constant/gemini_api_key.dart';
 import 'firebase_options.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: SplashScreen(),
+        home: NavBar(),
 
         debugShowCheckedModeBanner: false,
       ),
