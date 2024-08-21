@@ -17,7 +17,7 @@ import 'constant/gemini_api_key.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  
   Gemini.init(apiKey: Gemini_ApiKey);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

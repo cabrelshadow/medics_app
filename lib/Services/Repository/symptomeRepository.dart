@@ -9,7 +9,7 @@ import 'package:medics/Model/symptomeModel.dart';
 
 class Symptomerepository{
 
-  String? urlApi= dotenv.env['API_URL'];
+
   Logger logger = Logger();
 
   Future<List<SymptomeDetails>> getSymptomes()async{

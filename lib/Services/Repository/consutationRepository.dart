@@ -6,7 +6,7 @@ import '../../Model/consultationModel.dart';
 import '../../Model/symtomes.dart';
 
 class ConsultationRepository {
-  String? urlApi = dotenv.env['API_URL'];
+
   Logger logger = Logger();
 
   Future<List<Maladie>> getConsultation(Symptomes symptome) async {

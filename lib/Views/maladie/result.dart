@@ -1,5 +1,7 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:medics/Model/ApiModel.dart';
+import 'package:medics/constant/color_app.dart';
 
 class ResultPage extends StatelessWidget {
   final PredictionResponse result;
@@ -8,6 +10,13 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Déterminer quelle maladie a le pourcentage le plus élevé
+    double malariaPercentage = double.tryParse(result.malaria) ?? 0;
+    double typhoidPercentage = double.tryParse(result.typhoid) ?? 0;
+
+    // Identifier la maladie avec le plus grand pourcentage
+    bool isMalariaHighest = malariaPercentage > typhoidPercentage;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Résultats de l\'analyse'),
@@ -18,19 +27,35 @@ class ResultPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            _buildResultCard(
-              title: 'Malaria',
-              value: result.malaria,
-              color: Colors.orange,
-              icon: Icons.warning,
-            ),
-            SizedBox(height: 16),
-            _buildResultCard(
-              title: 'Typhoïde',
-              value: result.typhoid,
-              color: Colors.red,
-              icon: Icons.error,
-            ),
+            if (isMalariaHighest) ...[
+              _buildResultCard(
+                title: 'Malaria',
+                value: result.malaria,
+                color: Colors.orange,
+                icon: Icons.coronavirus_outlined, // Icône d'erreur pour la maladie la plus élevée
+              ),
+              SizedBox(height: 16),
+              _buildResultCard(
+                title: 'Typhoïde',
+                value: result.typhoid,
+                color: Colors.red,
+                icon: Icons.coronavirus_outlined,
+              ),
+            ] else ...[
+              _buildResultCard(
+                title: 'Typhoïde',
+                value: result.typhoid,
+                color: Colors.red,
+                icon: Icons.coronavirus_outlined, // Icône d'erreur pour la maladie la plus élevée
+              ),
+              SizedBox(height: 16),
+              _buildResultCard(
+                title: 'Malaria',
+                value: result.malaria,
+                color: Colors.orange,
+                icon: Icons.coronavirus_outlined,
+              ),
+            ],
             SizedBox(height: 16),
             _buildResultCard(
               title: 'Conclusion',
@@ -122,23 +147,44 @@ class ResultPage extends StatelessWidget {
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Médicaments recommandés:',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.blueAccent,
+            // Texte des médicaments recommandés
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Médicaments recommandés:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  for (var med in medications)
+                    Text(
+                      med,
+                      style: TextStyle(fontSize: 16, color: Colors.black87),
+                    ),
+                ],
               ),
             ),
-            SizedBox(height: 8),
-            for (var med in medications)
-              Text(
-                med,
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+            // Bouton d'icône GPS
+            AvatarGlow(
+              glowColor: AppColor.primary,
+              child: IconButton(
+                icon: Icon(Icons.location_on),
+                color: Colors.blueAccent,
+                iconSize: 40,
+                onPressed: () {
+                  // Action à effectuer lors du clic sur le bouton
+                  // Par exemple, vous pouvez ouvrir une carte ou afficher un itinéraire.
+                },
               ),
+            ),
           ],
         ),
       ),

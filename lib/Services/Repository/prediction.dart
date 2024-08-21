@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:medics/Model/ApiModel.dart';
 
 Future<PredictionResponse?> predictDisease(List<double> patientData) async {
-  final url = Uri.parse('http://192.168.8.126:7000/predict');  // Remplacez par l'URL de votre API
+  final url = Uri.parse('http://192.168.8.182:7000/predict');  // Remplacez par l'URL de votre API
   final response = await http.post(
     url,
     headers: {
